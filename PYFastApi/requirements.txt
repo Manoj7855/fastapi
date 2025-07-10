@@ -1,0 +1,48 @@
+1. python -m venv .venv
+2. .venv\Scripts\Activate
+3. pip install fastapi
+4. pip install uvicorn
+5. uvicorn main:app --reload
+
+
+******
+pathparameter
+
+from fastapi import FastAPI
+
+
+emp=[
+    {'id':101,'name':'manoj','place':'chennai'},
+    {'id':102,'name':'sam','place':'trichy'}
+]
+
+
+app= FastAPI()
+
+@app.get("/display/{id}")
+def view(id:int):
+    for e in emp:
+        if e['id']==id:
+            return e
+
+
+
+from fastapi import FastAPI
+
+
+emp=[
+    {'id':101,'name':'manoj','place':'chennai'},
+    {'id':102,'name':'sam','place':'trichy'}
+]
+
+
+app= FastAPI()
+
+@app.get("/display/{name}")
+def view(name:str):
+    for e in emp:
+        if e['name']==name:
+            return e
+
+*************
+
